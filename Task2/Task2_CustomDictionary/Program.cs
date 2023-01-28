@@ -5,19 +5,25 @@ namespace Task2_CustomDictionary
 {
     class Program
     {
+        // internal class because of "Main" method which is the main entry point of c# program
         internal class MyDictionary
         {
-            private int arraySize = 1000;
+            // private because variables are used inside of the constructors, variables would not be used externally
+            private int arraySize = 100;
+            // Creat variable "data" which is an array of keyValuePair, both key and value are strings
             private KeyValuePair<string, string>[] data;
 
+            // create public constructor called "MyDictionary" and initialize with KeyValuePair array
             public MyDictionary()
             {
                 data = new KeyValuePair<string, string>[arraySize];
             }
 
+            // create Hash method, take string and convert the first character to a string 
             public int Hash(string key)
             {
                 // Use the first character in the key to hash
+                // using remainder operator to ensure that the generated int is within the arraySize
                 return (int)key[0] % arraySize;
             }
 
