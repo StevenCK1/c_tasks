@@ -1,0 +1,15 @@
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\bin\Debug\net6.0\Task1_FizzBuzz.exe
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\bin\Debug\net6.0\Task1_FizzBuzz.deps.json
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\bin\Debug\net6.0\Task1_FizzBuzz.runtimeconfig.json
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\bin\Debug\net6.0\Task1_FizzBuzz.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\bin\Debug\net6.0\Task1_FizzBuzz.pdb
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\obj\Debug\net6.0\Task1_FizzBuzz.csproj.AssemblyReference.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\obj\Debug\net6.0\Task1_FizzBuzz.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\obj\Debug\net6.0\Task1_FizzBuzz.AssemblyInfoInputs.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\obj\Debug\net6.0\Task1_FizzBuzz.AssemblyInfo.cs
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\obj\Debug\net6.0\Task1_FizzBuzz.csproj.CoreCompileInputs.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\obj\Debug\net6.0\Task1_FizzBuzz.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\obj\Debug\net6.0\refint\Task1_FizzBuzz.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\obj\Debug\net6.0\Task1_FizzBuzz.pdb
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\obj\Debug\net6.0\Task1_FizzBuzz.genruntimeconfig.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task1\Task1_FizzBuzz\obj\Debug\net6.0\ref\Task1_FizzBuzz.dll
