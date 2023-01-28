@@ -1,0 +1,15 @@
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\bin\Debug\net6.0\Task2_CustomDictionary.exe
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\bin\Debug\net6.0\Task2_CustomDictionary.deps.json
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\bin\Debug\net6.0\Task2_CustomDictionary.runtimeconfig.json
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\bin\Debug\net6.0\Task2_CustomDictionary.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\bin\Debug\net6.0\Task2_CustomDictionary.pdb
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\obj\Debug\net6.0\Task2_CustomDictionary.csproj.AssemblyReference.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\obj\Debug\net6.0\Task2_CustomDictionary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\obj\Debug\net6.0\Task2_CustomDictionary.AssemblyInfoInputs.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\obj\Debug\net6.0\Task2_CustomDictionary.AssemblyInfo.cs
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\obj\Debug\net6.0\Task2_CustomDictionary.csproj.CoreCompileInputs.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\obj\Debug\net6.0\Task2_CustomDictionary.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\obj\Debug\net6.0\refint\Task2_CustomDictionary.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\obj\Debug\net6.0\Task2_CustomDictionary.pdb
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\obj\Debug\net6.0\Task2_CustomDictionary.genruntimeconfig.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task2\Task2_CustomDictionary\obj\Debug\net6.0\ref\Task2_CustomDictionary.dll
