@@ -1,0 +1,15 @@
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\bin\Debug\net6.0\Task3_GenericDictionary.exe
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\bin\Debug\net6.0\Task3_GenericDictionary.deps.json
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\bin\Debug\net6.0\Task3_GenericDictionary.runtimeconfig.json
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\bin\Debug\net6.0\Task3_GenericDictionary.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\bin\Debug\net6.0\Task3_GenericDictionary.pdb
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\obj\Debug\net6.0\Task3_GenericDictionary.csproj.AssemblyReference.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\obj\Debug\net6.0\Task3_GenericDictionary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\obj\Debug\net6.0\Task3_GenericDictionary.AssemblyInfoInputs.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\obj\Debug\net6.0\Task3_GenericDictionary.AssemblyInfo.cs
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\obj\Debug\net6.0\Task3_GenericDictionary.csproj.CoreCompileInputs.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\obj\Debug\net6.0\Task3_GenericDictionary.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\obj\Debug\net6.0\refint\Task3_GenericDictionary.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\obj\Debug\net6.0\Task3_GenericDictionary.pdb
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\obj\Debug\net6.0\Task3_GenericDictionary.genruntimeconfig.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task3\Task3_GenericDictionary\obj\Debug\net6.0\ref\Task3_GenericDictionary.dll
