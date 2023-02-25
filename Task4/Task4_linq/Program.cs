@@ -7,6 +7,7 @@ public class Program
 {
     public static void Main()
     {
+        var consoleUtils = new ConsoleUtils();
         var people = new List<Person>()
         {
             new Person("Bill", "Smith", 41, true),
@@ -61,7 +62,7 @@ public class Program
         // need to iterate through the list 
         foreach(var Person in lastNameThompsonAndBaker)
         {
-            ConsoleUtils.WriteLine($"{Person.FirstName}");
+            consoleUtils.WriteLine($"{Person.FirstName}");
         }
 
 
