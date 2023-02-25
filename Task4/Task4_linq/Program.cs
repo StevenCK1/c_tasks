@@ -159,6 +159,8 @@ public class Program
 
         // 10. Write a linq statement get all the families as a List<Family> class below. You will need to find all the members and group them by family (see question 5). Then create a family class for each family with the relevant details
 
+        List<Family> families= sameFamily.Select(p => new Family { LastName = p.Key, Members = p.Select(p => new FamilyMember { FirstName = p.FirstName, Age = p.Age, Male = p.Male})}).ToList();
+
 
     }
 }
