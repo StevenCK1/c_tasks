@@ -1,0 +1,15 @@
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\bin\Debug\net6.0\Task4_linq.exe
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\bin\Debug\net6.0\Task4_linq.deps.json
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\bin\Debug\net6.0\Task4_linq.runtimeconfig.json
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\bin\Debug\net6.0\Task4_linq.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\bin\Debug\net6.0\Task4_linq.pdb
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\obj\Debug\net6.0\Task4_linq.csproj.AssemblyReference.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\obj\Debug\net6.0\Task4_linq.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\obj\Debug\net6.0\Task4_linq.AssemblyInfoInputs.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\obj\Debug\net6.0\Task4_linq.AssemblyInfo.cs
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\obj\Debug\net6.0\Task4_linq.csproj.CoreCompileInputs.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\obj\Debug\net6.0\Task4_linq.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\obj\Debug\net6.0\refint\Task4_linq.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\obj\Debug\net6.0\Task4_linq.pdb
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\obj\Debug\net6.0\Task4_linq.genruntimeconfig.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task4\Task4_linq\obj\Debug\net6.0\ref\Task4_linq.dll
