@@ -1,0 +1,15 @@
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\bin\Debug\net6.0\FileSearcher.exe
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\bin\Debug\net6.0\FileSearcher.deps.json
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\bin\Debug\net6.0\FileSearcher.runtimeconfig.json
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\bin\Debug\net6.0\FileSearcher.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\bin\Debug\net6.0\FileSearcher.pdb
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\obj\Debug\net6.0\FileSearcher.csproj.AssemblyReference.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\obj\Debug\net6.0\FileSearcher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\obj\Debug\net6.0\FileSearcher.AssemblyInfoInputs.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\obj\Debug\net6.0\FileSearcher.AssemblyInfo.cs
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\obj\Debug\net6.0\FileSearcher.csproj.CoreCompileInputs.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\obj\Debug\net6.0\FileSearcher.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\obj\Debug\net6.0\refint\FileSearcher.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\obj\Debug\net6.0\FileSearcher.pdb
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\obj\Debug\net6.0\FileSearcher.genruntimeconfig.cache
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\FileSearcher\obj\Debug\net6.0\ref\FileSearcher.dll
