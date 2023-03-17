@@ -1,18 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+
 
 class MyDictionary
 {
     static void Main(string[] args)
     {
+        Phonebook phonebook = new Phonebook();
 
-        // refactor the code, separate phonebook and console
+        Console.WriteLine("Phonebook entries:");
+        foreach (var entry in phonebook.GetAll())
+        {
+            Console.WriteLine($"{entry.Key}: {entry.Value}");
+        }
 
-        // Dictionary<TKey, TValue>
-        // using long because int only goes from -2,147,483,648 to 2,147,483,647 (Size: Signed 32-bit integer)
-        // phone number is 11 digit
-        Dictionary<string, long> phonebook = new Dictionary<string, long>();
-
-        // Within while loop to continuously prompt user for commands, STOP breaks the loop 
         while (true)
         {
             Console.Write("Enter command (STORE, GET, DEL, UPDATE, STOP): ");
@@ -31,67 +32,35 @@ class MyDictionary
                 Console.Write("Enter number: ");
                 long number = Convert.ToInt64(Console.ReadLine());
 
-                // Can also use syntax below to add to dictionary
-                // phonebook[name] = number; // name being the key and number being the value
-                phonebook.Add(name, number);
-
+                phonebook.Store(name, number);
                 Console.WriteLine("OK");
             }
             else if (command == "GET")
             {
                 Console.Write("Enter name: ");
                 string name = Console.ReadLine();
-                
-                // Check that key exists
-                if (phonebook.ContainsKey(name))
-                {
-                    Console.WriteLine("OK " + phonebook[name]);
-                }
-                else
-                {
-                    Console.WriteLine("NOT FOUND");
-                }
+
+                long? number = phonebook.Get(name);
+                Console.WriteLine(number.HasValue ? $"OK {number}" : "NOT FOUND");
             }
             else if (command == "DEL")
             {
                 Console.Write("Enter name: ");
                 string name = Console.ReadLine();
 
-                if (phonebook.ContainsKey(name))
-                {
-                    // Store deleted number in variable so that can be used and printed on Console.writeLine
-                    long number = phonebook[name];
-                    phonebook.Remove(name);
-
-                    Console.WriteLine("OK " + number);
-                }
-                else
-                {
-                    Console.WriteLine("NOT FOUND");
-                }
+                long? number = phonebook.Delete(name);
+                Console.WriteLine(number.HasValue ? $"OK {number}" : "NOT FOUND");
             }
             else if (command == "UPDATE")
             {
                 Console.Write("Enter name: ");
                 string name = Console.ReadLine();
 
-                if (phonebook.ContainsKey(name))
-                {
-                    Console.Write("Enter new number: ");
-                    long newNumber = Convert.ToInt64(Console.ReadLine());
+                Console.Write("Enter new number: ");
+                long newNumber = Convert.ToInt64(Console.ReadLine());
 
-                    // store old number in variable so that can be used and printed on Console.writeLine
-                    long oldNumber = phonebook[name];
-
-                    // Update dictionary with new number 
-                    phonebook[name] = newNumber;
-
-                    Console.WriteLine("OK last no was - " + oldNumber);
-                }
-                else
-                {
-                    Console.WriteLine("NOT FOUND");
-                }
+                long? oldNumber = phonebook.Update(name, newNumber);
+                Console.WriteLine(oldNumber.HasValue ? $"OK last no was - {oldNumber}" : "NOT FOUND");
             }
             else
             {
@@ -99,5 +68,4 @@ class MyDictionary
             }
         }
     }
-
 }

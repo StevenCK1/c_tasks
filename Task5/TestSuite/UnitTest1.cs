@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using FileApp;
+using FileSearcher;
 
 namespace TestSuite
 {
