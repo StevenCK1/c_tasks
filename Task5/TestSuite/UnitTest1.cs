@@ -11,12 +11,27 @@ namespace TestSuite
         [SetUp]
         public void Setup()
         {
+            _fileSearcher = new FileSearcher();
         }
 
         [Test]
-        public void Test1()
+        public void SearchFiles_WithValidDirectoryAndFileName_ReturnsMatchingFiles()
         {
-            Assert.Pass();
+            // Arrange
+            string directoryPath = Path.GetTempPath();
+            string fileName = "testfile.txt";
+            string filePath = Path.Combine(directoryPath, fileName);
+            File.WriteAllText(filePath, "Test content");
+
+            // Act
+            List<string> matchingFiles = _fileSearcher.SearchFiles(directoryPath, fileName);
+
+            // Assert
+            Assert.AreEqual(1, matchingFiles.Count);
+            Assert.IsTrue(matchingFiles.Contains(filePath));
+
+            // Clean up
+            File.Delete(filePath);
         }
     }
 }
