@@ -7,6 +7,7 @@ public class Program
 {
     public static void Main()
     {
+        var consoleUtils = new ConsoleUtils();
         var people = new List<Person>()
         {
             new Person("Bill", "Smith", 41, true),
@@ -38,7 +39,9 @@ public class Program
 
         // using var will create the variable without needed to explicitly specifying the type, without using var. Would have needed to create variable with List<Person>
 
-        var orderedAlphabet = people.OrderBy(p => p.FirstName).ToList();
+        var orderedAlphabet = people.OrderBy(p => p.FirstName)
+            .Select(x => $"{x.FirstName} {x.LastName}")
+            .ToList();
         // Query syntax/expresions exists for most linq operation, looks very much like SQL (uhhhh)
 
 
@@ -49,6 +52,7 @@ public class Program
         // Declaring variable with explicit type,
         // Declaring with explicit type not very useful if I need the variable type to change
         List<Person> lastNameDs = people.Where(p => p.LastName.ToLower().First() == 'd').ToList();
+        var noWithLastNameD = lastNameDs.Count();
 
 
         //2. write linq statement for all the people who are have the surname Thompson and Baker. Write all the first names to the console
@@ -58,7 +62,7 @@ public class Program
         // need to iterate through the list 
         foreach(var Person in lastNameThompsonAndBaker)
         {
-            ConsoleUtils.WriteLine($"{Person.FirstName}");
+            consoleUtils.WriteLine($"{Person.FirstName}");
         }
 
 
@@ -76,16 +80,17 @@ public class Program
         // }
         // ```
 
-        // 4. Write linq statement for first Person Older Than 40 In Descending Alphabetical Order By First Name
+        // 4. Write linq statement to get everyone over 40. We then want to award a prize to the person whos first name is last
+        // when you order those names alphabetically. Print that persons name
         //Console.WriteLine("First Person Older Than 40 in Descending Order by First Name " + person2.ToString());
 
-        List<Person> over40s = people.Where(p => p.Age > 40).OrderByDescending(p => p.FirstName).ToList();
+        var firstPersonOver40 = people.Where(p => p.Age > 40).OrderByDescending(p => p.FirstName).First();
 
 
         //5. write a linq statement that finds all the people who are part of a family. (aka there is at least one other person with the same surname.
 
         // Need to groupBy key first and then chain with Where (group needs to have more than one value)
-        List<IGrouping<string, Person>> sameFamily = people.GroupBy(p => p.LastName).Where(group => group.Count() > 1).ToList();
+        var sameFamily = people.GroupBy(p => p.LastName).Where(group => group.Count() > 1).ToList();
    
         // Testing grouping is correct
          // foreach to iterate through the IGrouping and 2nd foreach to iterate through every object 
@@ -159,7 +164,11 @@ public class Program
 
         // 10. Write a linq statement get all the families as a List<Family> class below. You will need to find all the members and group them by family (see question 5). Then create a family class for each family with the relevant details
 
-        List<Family> families= sameFamily.Select(p => new Family { LastName = p.Key, Members = p.Select(p => new FamilyMember { FirstName = p.FirstName, Age = p.Age, Male = p.Male})}).ToList();
+        List<Family> families= sameFamily
+            .Select(p => new Family { 
+                LastName = p.Key, 
+                Members = p.Select(p => new FamilyMember { FirstName = p.FirstName, Age = p.Age, Male = p.Male}).ToList()})
+            .ToList();
 
 
     }
@@ -232,17 +241,23 @@ public class Family
     }
 
     public string LastName { get; set; }
-    List<FamilyMember> Members { get; set; }
+    public List<FamilyMember> Members { get; set; }
 }
 
 public class FamilyMember
 {
+    public FamilyMember()
+    {
+
+    }
+
     public FamilyMember(string firstName, int age, bool isMale)
     {
         FirstName = firstName;
         Age = age;
         Male = isMale;
     }
+
 
     public string FirstName { get; set; }
     public int Age { get; set; }
