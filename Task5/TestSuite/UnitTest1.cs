@@ -1,17 +1,14 @@
-using NUnit.Framework;
 using FileSearcher;
 
 namespace TestSuite
 {
     public class Tests
     {
-        // Why not working? main project name is FileSearcher
-        private FileSearcher _fileSearcher;
 
         [SetUp]
         public void Setup()
         {
-            _fileSearcher = new FileSearcher();
+
         }
 
         [Test]
@@ -23,8 +20,9 @@ namespace TestSuite
             string filePath = Path.Combine(directoryPath, fileName);
             File.WriteAllText(filePath, "Test content");
 
+
             // Act
-            List<string> matchingFiles = _fileSearcher.SearchFiles(directoryPath, fileName);
+            List<string> matchingFiles = ProgramHelpers.SearchFiles(directoryPath, fileName);
 
             // Assert
             Assert.AreEqual(1, matchingFiles.Count);

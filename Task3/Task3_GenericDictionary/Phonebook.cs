@@ -1,5 +1,7 @@
-﻿class Phonebook
+﻿public class Phonebook
 {
+    // classes need to do one thing only
+    // seaparate save file functions into its own class!!! from phonebook re   
     private Dictionary<string, long> _phonebook;
     private const string Path = "C:\\Users\\Steven\\Desktop\\phonebook.txt";
 
@@ -64,6 +66,7 @@
 
     private void SaveToFile()
     {
+        // easier to do list and add to list
         string[] lines = new string[_phonebook.Count];
         int i = 0;
         foreach (KeyValuePair<string, long> entry in _phonebook)

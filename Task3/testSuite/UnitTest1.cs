@@ -1,13 +1,11 @@
 using NUnit.Framework;
-// using Task3_GenericDictionary;
-// using Phonebook;
 
 namespace testSuite
 {
-    private Phonebook _phonebook;
+   
     public class Tests
     {
-        
+        private Phonebook _phonebook;
 
         [SetUp]
         public void Setup()
@@ -16,9 +14,21 @@ namespace testSuite
         }
 
         [Test]
-        public void Test1()
+        public void StoreAndGetEntry()
         {
-            Assert.Pass();
+            // Arrange
+            string name = "John";
+            long number = 1234567890;
+
+            // Act
+            _phonebook.Store(name, number);
+            long? result = _phonebook.Get(name);
+
+            // Assert
+            Assert.AreEqual(number, result);
+
+            // Delete entry when done
+            _phonebook.Delete(name);
         }
     }
 }

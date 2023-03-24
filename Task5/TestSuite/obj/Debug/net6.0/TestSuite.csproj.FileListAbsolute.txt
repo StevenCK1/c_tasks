@@ -97,3 +97,9 @@ C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\TestSuite\obj\Debug\net6.0\
 C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\TestSuite\obj\Debug\net6.0\TestSuite.pdb
 C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\TestSuite\obj\Debug\net6.0\TestSuite.genruntimeconfig.cache
 C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\TestSuite\obj\Debug\net6.0\ref\TestSuite.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\TestSuite\bin\Debug\net6.0\CoverletSourceRootsMapping
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\TestSuite\bin\Debug\net6.0\FileSearcher.deps.json
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\TestSuite\bin\Debug\net6.0\FileSearcher.runtimeconfig.json
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\TestSuite\bin\Debug\net6.0\FileSearcher.exe
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\TestSuite\bin\Debug\net6.0\FileSearcher.dll
+C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task5\TestSuite\bin\Debug\net6.0\FileSearcher.pdb

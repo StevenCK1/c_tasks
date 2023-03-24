@@ -973,6 +973,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "FileSearcher/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/FileSearcher.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FileSearcher.dll": {}
+        }
       }
     }
   },
@@ -3946,10 +3956,16 @@
         "system.xml.xdocument.4.0.11.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "FileSearcher/1.0.0": {
+      "type": "project",
+      "path": "../FileSearcher/FileSearcher.csproj",
+      "msbuildProject": "../FileSearcher/FileSearcher.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "FileSearcher >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.3.2",
       "NUnit >= 3.13.3",
       "NUnit.Analyzers >= 3.5.0",
@@ -3983,7 +3999,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Steven\\source\\repos\\StevenCK1\\c_tasks\\Task5\\FileSearcher\\FileSearcher.csproj": {
+              "projectPath": "C:\\Users\\Steven\\source\\repos\\StevenCK1\\c_tasks\\Task5\\FileSearcher\\FileSearcher.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

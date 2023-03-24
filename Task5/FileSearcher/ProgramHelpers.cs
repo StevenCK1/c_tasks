@@ -1,23 +1,27 @@
-﻿internal static class ProgramHelpers
+﻿
+namespace FileSearcher
 {
-
-    public static List<string> SearchFiles(string directoryPath, string fileName)
+    public class ProgramHelpers
     {
-        List<string> matchingFiles = new List<string>();
 
-        try
+        public static List<string> SearchFiles(string directoryPath, string fileName)
         {
-            // SearchOption.AllDirectories to search in sub directories
-             foreach (string file in Directory.GetFiles(directoryPath, fileName, SearchOption.AllDirectories))
+            List<string> matchingFiles = new List<string>();
+
+            try
             {
-                matchingFiles.Add(file);
+                // SearchOption.AllDirectories to search in sub directories
+                foreach (string file in Directory.GetFiles(directoryPath, fileName, SearchOption.AllDirectories))
+                {
+                    matchingFiles.Add(file);
+                }
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error: " + ex.Message);
-        }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
 
-        return matchingFiles;
+            return matchingFiles;
+        }
     }
 }

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 
 
-    public class FileSearcher
+namespace FileSearcher
+{
+public class Program
     {
         static void Main(string[] args)
         {
@@ -29,4 +31,6 @@ using System.IO;
             }
         }
     }
+}
+    
 
