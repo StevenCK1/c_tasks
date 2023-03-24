@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 
-public class fileHelpers
+
+public class FileHelpers
 {
     public const string Path = "phonebook.txt";
 

@@ -1,10 +1,8 @@
-﻿public class Phonebook : fileHelpers
+﻿public class Phonebook : FileHelpers
 {
-    // classes need to do one thing only
-    // seaparate save file functions into its own class!!! from phonebook re   
     public Dictionary<string, long> _phonebook;
 
-    public Phonebook(fileHelpers fileHelpers)
+    public Phonebook(FileHelpers fileHelpers)
     {
         _phonebook = new Dictionary<string, long>();
 
