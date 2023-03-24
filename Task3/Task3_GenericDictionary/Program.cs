@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 class MyDictionary
 {
-    static void Main(string[] args)
+    static void Main(string[] args, fileHelpers fileHelpers)
     {
-        Phonebook phonebook = new Phonebook();
+        Phonebook phonebook = new Phonebook(fileHelpers: fileHelpers);
 
         Console.WriteLine("Phonebook entries:");
         foreach (var entry in phonebook.GetAll())

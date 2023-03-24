@@ -1,11 +1,10 @@
-﻿public class Phonebook
+﻿public class Phonebook : fileHelpers
 {
     // classes need to do one thing only
     // seaparate save file functions into its own class!!! from phonebook re   
-    private Dictionary<string, long> _phonebook;
-    private const string Path = "C:\\Users\\Steven\\Desktop\\phonebook.txt";
+    public Dictionary<string, long> _phonebook;
 
-    public Phonebook()
+    public Phonebook(fileHelpers fileHelpers)
     {
         _phonebook = new Dictionary<string, long>();
 
@@ -14,8 +13,10 @@
             File.Create(Path).Close();
         }
 
-        LoadFromFile();
+        fileHelpers.LoadFromFile(_phonebook);
     }
+
+ 
 
     public long? Get(string name)
     {
@@ -33,7 +34,7 @@
         if (_phonebook.TryGetValue(name, out long number))
         {
             _phonebook.Remove(name);
-            SaveToFile();
+            SaveToFile(_phonebook);
             return number;
         }
         return null;
@@ -45,41 +46,15 @@
         {
             long oldNumber = _phonebook[name];
             _phonebook[name] = newNumber;
-            SaveToFile();
+            SaveToFile(_phonebook);
             return oldNumber;
         }
         return null;
     }
 
-    private void LoadFromFile()
-    {
-        string[] lines = File.ReadAllLines(Path);
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split(',');
-            if (parts.Length == 2 && long.TryParse(parts[1], out long number))
-            {
-                _phonebook[parts[0]] = number;
-            }
-        }
-    }
-
-    private void SaveToFile()
-    {
-        // easier to do list and add to list
-        string[] lines = new string[_phonebook.Count];
-        int i = 0;
-        foreach (KeyValuePair<string, long> entry in _phonebook)
-        {
-            lines[i] = $"{entry.Key},{entry.Value}";
-            i++;
-        }
-        File.WriteAllLines(Path, lines);
-    }
-
     public void Store(string name, long number)
     {
         _phonebook[name] = number;
-        SaveToFile();
+        SaveToFile(_phonebook);
     }
 }

@@ -8,9 +8,9 @@ namespace testSuite
         private Phonebook _phonebook;
 
         [SetUp]
-        public void Setup()
+        public void Setup(fileHelpers fileHelpers)
         {
-            _phonebook = new Phonebook();
+            _phonebook = new Phonebook(fileHelpers);
         }
 
         [Test]
