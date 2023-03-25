@@ -15,9 +15,7 @@ public class PhonebookTests
         mockHelpers = new Mock<FileHelpers>();
         // create an instance of phonebook using the mock object. Now I am able to test the phonebook methods without making changes to the actual phonebook.txt file since 
         _phonebook = new Phonebook(mockHelpers.Object);
-        // set up the SaveToFile method's behaviour. Method is void, don't need to return anything
-        // Non-overridable members (here: FileHelpers.SaveToFile) may not be used in setup / verification expressions.  Need to implement interface in FileHelpers???
-        mockHelpers.Setup(m => m.SaveToFile((IDictionary)_phonebook));
+        // no need to set up behaviour of fileHelpers methods
 
     }
 

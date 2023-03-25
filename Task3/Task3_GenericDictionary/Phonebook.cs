@@ -1,20 +1,20 @@
-﻿public class Phonebook : FileHelpers
+﻿public class Phonebook
 {
     public Dictionary<string, long> _phonebook;
+    private FileHelpers _fileHelpers;
 
     public Phonebook(FileHelpers fileHelpers)
     {
         _phonebook = new Dictionary<string, long>();
+        _fileHelpers = fileHelpers;
 
-        if (!File.Exists(Path))
+        if (!File.Exists(FileHelpers.Path))
         {
-            File.Create(Path).Close();
+            File.Create(FileHelpers.Path).Close();
         }
 
-        fileHelpers.LoadFromFile(_phonebook);
+        _fileHelpers.LoadFromFile(_phonebook);
     }
-
- 
 
     public long? Get(string name)
     {
@@ -32,7 +32,7 @@
         if (_phonebook.TryGetValue(name, out long number))
         {
             _phonebook.Remove(name);
-            SaveToFile(_phonebook);
+            _fileHelpers.SaveToFile(_phonebook);
             return number;
         }
         return null;
@@ -44,7 +44,7 @@
         {
             long oldNumber = _phonebook[name];
             _phonebook[name] = newNumber;
-            SaveToFile(_phonebook);
+            _fileHelpers.SaveToFile(_phonebook);
             return oldNumber;
         }
         return null;
@@ -53,6 +53,6 @@
     public void Store(string name, long number)
     {
         _phonebook[name] = number;
-        SaveToFile(_phonebook);
+        _fileHelpers.SaveToFile(_phonebook);
     }
 }

@@ -7,7 +7,7 @@ class MyDictionary
     static void Main(string[] args)
     {
         FileHelpers fileHelpers = new FileHelpers();
-        Phonebook phonebook = new Phonebook(fileHelpers: fileHelpers);
+        Phonebook phonebook = new Phonebook(fileHelpers);
 
         Console.WriteLine("Phonebook entries:");
         foreach (var entry in phonebook.GetAll())
