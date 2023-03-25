@@ -15,7 +15,7 @@ public class PhonebookTests
         mockHelpers = new Mock<FileHelpers>();
         // create an instance of phonebook using the mock object. Now I am able to test the phonebook methods without making changes to the actual phonebook.txt file since 
         _phonebook = new Phonebook(mockHelpers.Object);
-        // no need to set up behaviour of fileHelpers methods
+        // no need to set up behaviour of fileHelpers methods???
 
     }
 
@@ -54,5 +54,28 @@ public class PhonebookTests
         Assert.AreEqual(2, dic.Count);
         Assert.AreEqual(number1, dic[name1]);
         Assert.AreEqual(number2, dic[name2]);
+    }
+
+    [Test]
+    public void DeleteEntry()
+    {
+        // Arrange
+        string name1 = "John";
+        long number1 = 123456789;
+        string name2 = "Johnny";
+        long number2 = 987654321;
+        _phonebook.Store(name1, number1);
+        _phonebook.Store(name2, number2);
+
+        // Act
+        _phonebook.Delete(name1);
+        Dictionary<string, long> dic = _phonebook.GetAll();
+
+        // Assert
+        Assert.AreEqual(1, dic.Count);
+        Assert.AreEqual(number2, dic[name2]);
+        Assert.IsFalse(dic.ContainsKey(name1));
+
+
     }
 }
