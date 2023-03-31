@@ -8,6 +8,8 @@
         _phonebook = new Dictionary<string, long>();
         _fileHelpers = fileHelpers;
 
+
+        // Create method for this and move to file helpers
         if (!File.Exists(FileHelpers.Path))
         {
             File.Create(FileHelpers.Path).Close();
