@@ -6,7 +6,7 @@ using Moq;
 
 namespace TestSuite
 {
-    public class Tests
+    public class TransferMoneyTests
     {
         private TransferMoney _transferMoney;
         private Mock<IAccountRepository> _mockAccountRepository;
@@ -112,13 +112,15 @@ namespace TestSuite
                     Name = "Test User 2"
                 }
             };
+            var amount = 501m;
+
             mockAccountRepository.Setup(r => r.GetAccountById(fromAccount.Id)).Returns(fromAccount);
             mockAccountRepository.Setup(r => r.GetAccountById(toAccount.Id)).Returns(toAccount);
 
             var transferMoney = new TransferMoney(mockAccountRepository.Object, mockNotificationService.Object);
 
             // Act
-            transferMoney.Execute(fromAccount.Id, toAccount.Id, 501m);
+            transferMoney.Execute(fromAccount.Id, toAccount.Id, amount);
 
             // Assert
             mockNotificationService.Verify(s => s.NotifyFundsLow(fromAccount.User.Email), Times.Once);

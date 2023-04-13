@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Task3",
+    "\\Task3\\testSuite",
+    "\\Task4",
     "\\Task4\\Task4_linq",
     "\\Task5",
+    "\\Task5\\TestSuite",
     "\\Task6"
   ],
   "SelectedNode": "\\Task6\\Moneybox.Refactor.sln",
