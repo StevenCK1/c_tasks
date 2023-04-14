@@ -1,5 +1,6 @@
 using Moneybox.App;
 using Moneybox.App.DataAccess;
+using Moneybox.App.Domain;
 using Moneybox.App.Domain.Services;
 using Moneybox.App.Features;
 using Moq;
@@ -11,6 +12,7 @@ namespace TestSuite
         private TransferMoney _transferMoney;
         private Mock<IAccountRepository> _mockAccountRepository;
         private Mock<INotificationService> _mockNotificationService;
+        private BalanceMethods _balanceMethods;
 
         [SetUp]
         public void Setup()

@@ -41,7 +41,7 @@ namespace TestSuite
             _withdrawMoney.Execute(AccountId, amount);
 
             // Assert
-            _mockAccountRepository.Verify(x => x.Update(AccountId), Times.Once);
+            _mockAccountRepository.Verify(x => x.Update(Account), Times.Once);
             Assert.AreEqual(900m, Account.Balance);
         }
     }
