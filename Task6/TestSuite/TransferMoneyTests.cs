@@ -12,7 +12,7 @@ namespace TestSuite
         private TransferMoney _transferMoney;
         private Mock<IAccountRepository> _mockAccountRepository;
         private Mock<INotificationService> _mockNotificationService;
-        private BalanceMethods _balanceMethods;
+       // private BalanceMethods _balanceMethods;
 
         [SetUp]
         public void Setup()

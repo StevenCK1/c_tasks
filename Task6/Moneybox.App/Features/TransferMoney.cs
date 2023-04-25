@@ -9,13 +9,15 @@ namespace Moneybox.App.Features
     {
         private IAccountRepository accountRepository;
         private INotificationService notificationService;
-       // private BalanceMethods _balanceMethods;
+        private BalanceMethods _balanceMethods;
 
 
         public TransferMoney(IAccountRepository accountRepository, INotificationService notificationService)
         {
             this.accountRepository = accountRepository;
             this.notificationService = notificationService;
+            this._balanceMethods = new BalanceMethods();
+
         }
 
         public void Execute(Guid fromAccountId, Guid toAccountId, decimal amount)
@@ -25,11 +27,7 @@ namespace Moneybox.App.Features
 
             var fromBalance = from.Balance - amount;
 
-            BalanceMethods.InsufficientFunds(fromBalance, "transfer");
-            if (fromBalance < 0m)
-            {
-                throw new InvalidOperationException("Insufficient funds to make transfer");
-            }
+            _balanceMethods.InsufficientFunds(fromBalance, "transfer");
 
             if (fromBalance < 500m)
             {
