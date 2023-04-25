@@ -31,11 +31,6 @@ namespace Moneybox.App.Features
             _balanceMethods.NotifyWhenFundsUnder500(from, fromBalance, notificationService);
 
             _balanceMethods.updateBalancesOfAccount(null, from, null, amount, accountRepository);
-
-            //from.Balance = from.Balance - amount;
-            //from.Withdrawn = from.Withdrawn - amount;
-
-            //this.accountRepository.Update(from);
         }
     }
 }
