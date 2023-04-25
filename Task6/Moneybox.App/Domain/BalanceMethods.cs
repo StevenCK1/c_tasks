@@ -1,4 +1,5 @@
 ﻿using System;
+using Moneybox.App.DataAccess;
 using Moneybox.App.Domain.Services;
 
 namespace Moneybox.App.Domain
@@ -19,6 +20,22 @@ namespace Moneybox.App.Domain
             if (balance < 500m)
             {
                 notificationService.NotifyFundsLow(account.User.Email);
+            }
+        }
+
+        public void updateBalancesOfAccount(string type, Account from, Account to, decimal amount, IAccountRepository accountRepository)
+        {
+            from.Balance = from.Balance - amount;
+            from.Withdrawn = from.Withdrawn - amount;
+            accountRepository.Update(from);
+            
+            if (type == "transfer")
+            {
+                to.Balance = to.Balance + amount;
+                to.PaidIn = to.PaidIn + amount;
+
+
+                accountRepository.Update(to);
             }
         }
     }

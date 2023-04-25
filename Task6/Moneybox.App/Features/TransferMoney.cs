@@ -30,10 +30,6 @@ namespace Moneybox.App.Features
             _balanceMethods.InsufficientFunds(fromBalance, "transfer");
 
             _balanceMethods.NotifyWhenFundsUnder500(from, fromBalance, notificationService);
-            //if (fromBalance < 500m)
-            //{
-            //    this.notificationService.NotifyFundsLow(from.User.Email);
-            //}
 
             var paidIn = to.PaidIn + amount;
             if (paidIn > Account.PayInLimit)
@@ -45,15 +41,7 @@ namespace Moneybox.App.Features
             {
                 this.notificationService.NotifyApproachingPayInLimit(to.User.Email);
             }
-
-            from.Balance = from.Balance - amount;
-            from.Withdrawn = from.Withdrawn - amount;
-
-            to.Balance = to.Balance + amount;
-            to.PaidIn = to.PaidIn + amount;
-
-            this.accountRepository.Update(from);
-            this.accountRepository.Update(to);
+            _balanceMethods.updateBalancesOfAccount("transfer", from, to, amount, accountRepository);
         }
     }
 }

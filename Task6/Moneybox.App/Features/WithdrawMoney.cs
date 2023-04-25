@@ -29,15 +29,13 @@ namespace Moneybox.App.Features
             _balanceMethods.InsufficientFunds(fromBalance, "withdrawal");
 
             _balanceMethods.NotifyWhenFundsUnder500(from, fromBalance, notificationService);
-            //if (fromBalance < 500m)
-            //{
-            //    this.notificationService.NotifyFundsLow(from.User.Email);
-            //}
 
-            from.Balance = from.Balance - amount;
-            from.Withdrawn = from.Withdrawn - amount;
+            _balanceMethods.updateBalancesOfAccount(null, from, null, amount, accountRepository);
 
-            this.accountRepository.Update(from);
+            //from.Balance = from.Balance - amount;
+            //from.Withdrawn = from.Withdrawn - amount;
+
+            //this.accountRepository.Update(from);
         }
     }
 }
