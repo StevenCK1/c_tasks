@@ -1,4 +1,5 @@
 ﻿using System;
+using Moneybox.App.Domain.Services;
 
 namespace Moneybox.App.Domain
 {
@@ -11,6 +12,14 @@ namespace Moneybox.App.Domain
                 throw new InvalidOperationException($"Insufficient funds to make {BalanceOperation}");
             }
 
+        }
+
+        public void NotifyWhenFundsUnder500(Account account, decimal balance, INotificationService notificationService)
+        {
+            if (balance < 500m)
+            {
+                notificationService.NotifyFundsLow(account.User.Email);
+            }
         }
     }
 }

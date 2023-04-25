@@ -1,7 +1,7 @@
-﻿using Moneybox.App.DataAccess;
+﻿using System;
+using Moneybox.App.DataAccess;
 using Moneybox.App.Domain;
 using Moneybox.App.Domain.Services;
-using System;
 
 namespace Moneybox.App.Features
 {
@@ -29,10 +29,11 @@ namespace Moneybox.App.Features
 
             _balanceMethods.InsufficientFunds(fromBalance, "transfer");
 
-            if (fromBalance < 500m)
-            {
-                this.notificationService.NotifyFundsLow(from.User.Email);
-            }
+            _balanceMethods.NotifyWhenFundsUnder500(from, fromBalance, notificationService);
+            //if (fromBalance < 500m)
+            //{
+            //    this.notificationService.NotifyFundsLow(from.User.Email);
+            //}
 
             var paidIn = to.PaidIn + amount;
             if (paidIn > Account.PayInLimit)
