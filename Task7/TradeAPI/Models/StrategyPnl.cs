@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TradeAPI.Models
+﻿namespace TradeAPI.Models
 {
-    internal class Class1
+    public class StrategyPnl
     {
+        public string Strategy { get; set; }
+        public List<Pnl> Pnls { get; set; }
     }
 }
