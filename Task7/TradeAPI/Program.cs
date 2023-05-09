@@ -4,14 +4,19 @@ using System.Globalization;
 using System.Runtime.CompilerServices;
 using TradeAPI.Models;
 using TradeAPI.Lib;
+using System.Reflection.Metadata;
+using TradeAPI.TradesData;
 
 class Program
 {
     static void Main(string[] args)
     {
-       CsvConverter csvConverter = new CsvConverter();
+        string relativePath = @".\TradesData\pnl.csv";
+        string fullPath = Path.Combine(relativePath);
 
-        csvConverter.convertStrategy();
+        CsvConverter csvConverter = new CsvConverter();
+
+        csvConverter.ConvertStrategy(fullPath);
 
     }
 }
