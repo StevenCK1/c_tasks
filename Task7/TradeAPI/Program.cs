@@ -11,8 +11,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        string relativePath = @".\TradesData\pnl.csv";
-        string fullPath = Path.Combine(relativePath);
+        string fullPath = Path.Combine(Constants.PnlPath);
 
         CsvConverter csvConverter = new CsvConverter();
 

@@ -18,9 +18,8 @@ namespace Tests
         public void ConvertStrategy_ShouldReturnCorrectData_WhenFileHasData()
         {
             // Arrange
-            string filePath = "pnl.csv";
-            string strategy1 = "Strategy1";
-            string strategy2 = "Strategy2";
+            string relativePath = @".\TradesData\pnl.csv";
+            string fullPath = Path.Combine(relativePath);
             DateTime date1 = new DateTime(2010, 1, 1);
             DateTime date2 = new DateTime(2010, 1, 4);
 
@@ -28,7 +27,7 @@ namespace Tests
     {
         new StrategyPnl
         {
-            Strategy = strategy1,
+            Strategy = "Strategy1",
             Pnls = new List<Pnl>
             {
                 new Pnl { Date = date1, Amount = 95045 },
@@ -37,7 +36,7 @@ namespace Tests
         },
         new StrategyPnl
         {
-            Strategy = strategy2,
+            Strategy = "Strategy2",
             Pnls = new List<Pnl>
             {
                 new Pnl { Date = date1, Amount = 501273 },
@@ -47,10 +46,20 @@ namespace Tests
     };
 
             // Act
-            var actualData = _csvConverter.ConvertStrategy(filePath);
+            var actualData = _csvConverter.ConvertStrategy(fullPath);
 
             // Assert
-           
+            for (int i = 0; i < expectedData.Count; i++)
+            {
+                for (int j = 0; j < expectedData[i].Pnls.Count ; j++) {
+                
+                 Assert.AreEqual(expectedData[i].Strategy, actualData[i].Strategy);
+                 Assert.AreEqual(expectedData[i].Pnls[j].Date, actualData[i].Pnls[j].Date);
+                 Assert.AreEqual(expectedData[i].Pnls[j].Amount, actualData[i].Pnls[j].Amount);
+
+                }
+            }
+
         }
     }
 }

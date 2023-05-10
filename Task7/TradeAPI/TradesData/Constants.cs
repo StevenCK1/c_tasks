@@ -1,12 +1,8 @@
 ﻿namespace TradeAPI.TradesData
 {
-    public class Constants
+    public static class Constants
     {
-        public string PnlPath { get; private set; }
+        public static string PnlPath { get; } = @".\TradesData\pnl.csv";
 
-        public Constants()
-        {
-            PnlPath = @"C:\Users\Steven\source\repos\StevenCK1\c_tasks\Task7\TradeAPI\TradesData\pnl.csv";
-        }
     }
 }

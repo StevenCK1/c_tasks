@@ -7,7 +7,7 @@ namespace TradeAPI.Lib
 {
     public class CsvConverter
     {
-        public IEnumerable<StrategyPnl> ConvertStrategy(string PnLPath)
+        public List<StrategyPnl> ConvertStrategy(string PnLPath)
         {
             List<StrategyPnl> strategyPnlList = new List<StrategyPnl>();
             using (StreamReader reader = new StreamReader(PnLPath))
