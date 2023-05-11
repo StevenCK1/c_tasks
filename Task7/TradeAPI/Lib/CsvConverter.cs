@@ -47,7 +47,7 @@ namespace TradeAPI.Lib
             StrategyPnl strategyPnl = strategyPnlList.Find(x => x.Strategy == headers[index + 1]);
             if (strategyPnl == null)
             {
-                strategyPnl = new StrategyPnl { Strategy = headers[index + 1], Pnls = new List<Pnl>() };
+                strategyPnl = new StrategyPnl { Strategy = headers[index + 1], Pnls = new List<PnL>() };
                 strategyPnlList.Add(strategyPnl);
             }
             return strategyPnl;
@@ -55,7 +55,7 @@ namespace TradeAPI.Lib
 
         private void AddPnlToStrategyPnl(DateTime date, decimal pnl, StrategyPnl strategyPnl)
         {
-            strategyPnl.Pnls.Add(new Pnl { Date = date, Amount = pnl });
+            strategyPnl.Pnls.Add(new PnL { Date = date, Amount = pnl });
         }
 
 

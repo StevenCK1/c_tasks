@@ -28,19 +28,19 @@ namespace Tests
         new StrategyPnl
         {
             Strategy = "Strategy1",
-            Pnls = new List<Pnl>
+            Pnls = new List<PnL>
             {
-                new Pnl { Date = date1, Amount = 95045 },
-                new Pnl { Date = date2, Amount = -140135 }
+                new PnL { Date = date1, Amount = 95045 },
+                new PnL { Date = date2, Amount = -140135 }
             }
         },
         new StrategyPnl
         {
             Strategy = "Strategy2",
-            Pnls = new List<Pnl>
+            Pnls = new List<PnL>
             {
-                new Pnl { Date = date1, Amount = 501273 },
-                new Pnl { Date = date2, Amount = 369071 }
+                new PnL { Date = date1, Amount = 501273 },
+                new PnL { Date = date2, Amount = 369071 }
             }
         }
     };
