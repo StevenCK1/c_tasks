@@ -53,9 +53,9 @@ namespace Tests
             {
                 for (int j = 0; j < expectedData[i].Pnls.Count ; j++) {
                 
-                 Assert.AreEqual(expectedData[i].Strategy, actualData[i].Strategy);
-                 Assert.AreEqual(expectedData[i].Pnls[j].Date, actualData[i].Pnls[j].Date);
-                 Assert.AreEqual(expectedData[i].Pnls[j].Amount, actualData[i].Pnls[j].Amount);
+                 Assert.That(actualData[i].Strategy, Is.EqualTo(expectedData[i].Strategy));
+                 Assert.That(actualData[i].Pnls[j].Date, Is.EqualTo(expectedData[i].Pnls[j].Date));
+                 Assert.That(actualData[i].Pnls[j].Amount, Is.EqualTo(expectedData[i].Pnls[j].Amount));
 
                 }
             }
