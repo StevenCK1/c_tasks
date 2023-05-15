@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TradeAPI.Db\TradeAPI.Db.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="TradesData\pnl.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

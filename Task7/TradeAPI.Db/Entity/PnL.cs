@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TradeAPI.Db.Scaffolded;
+namespace TradeAPI.Db.Entity;
 
 public partial class PnL
 {

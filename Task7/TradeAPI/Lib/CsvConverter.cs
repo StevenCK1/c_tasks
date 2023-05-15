@@ -1,5 +1,7 @@
 ﻿
 using System.Globalization;
+using Microsoft.EntityFrameworkCore;
+using TradeAPI.Db;
 using TradeAPI.Models;
 using TradeAPI.TradesData;
 

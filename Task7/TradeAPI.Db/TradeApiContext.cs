@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TradeAPI.Db.Scaffolded;
+using TradeAPI.Db.Entity;
 
 namespace TradeAPI.Db;
 

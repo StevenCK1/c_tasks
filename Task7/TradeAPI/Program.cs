@@ -1,8 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Globalization;
-using System.Runtime.CompilerServices;
-using TradeAPI.Models;
+﻿using TradeAPI.Db;
 using TradeAPI.Lib;
 using TradeAPI.TradesData;
 
@@ -10,11 +6,15 @@ class Program
 {
     static void Main(string[] args)
     {
+        CsvConverter csvConverter = new CsvConverter();
         string fullPath = Path.Combine(Constants.PnlPath);
 
-        CsvConverter csvConverter = new CsvConverter();
+        using (TradeApiContext tradeApiContext = new TradeApiContext())
+        {
+            CsvConverterDb csvConverterDb = new CsvConverterDb(tradeApiContext, csvConverter);
 
-        csvConverter.ConvertStrategy(fullPath);
+            csvConverterDb.ConvertAndPopulateDatabase(fullPath);
+        }
 
     }
 }
