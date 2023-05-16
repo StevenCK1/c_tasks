@@ -23,24 +23,24 @@ namespace Tests
             DateTime date1 = new DateTime(2010, 1, 1);
             DateTime date2 = new DateTime(2010, 1, 4);
 
-            List<StrategyPnl> expectedData = new List<StrategyPnl>
+            List<StrategyPnlVM> expectedData = new List<StrategyPnlVM>
     {
-        new StrategyPnl
+        new StrategyPnlVM
         {
             Strategy = "Strategy1",
-            Pnls = new List<PnL>
+            Pnls = new List<PnLVM>
             {
-                new PnL { Date = date1, Amount = 95045 },
-                new PnL { Date = date2, Amount = -140135 }
+                new PnLVM { Date = date1, Amount = 95045 },
+                new PnLVM { Date = date2, Amount = -140135 }
             }
         },
-        new StrategyPnl
+        new StrategyPnlVM
         {
             Strategy = "Strategy2",
-            Pnls = new List<PnL>
+            Pnls = new List<PnLVM>
             {
-                new PnL { Date = date1, Amount = 501273 },
-                new PnL { Date = date2, Amount = 369071 }
+                new PnLVM { Date = date1, Amount = 501273 },
+                new PnLVM { Date = date2, Amount = 369071 }
             }
         }
     };

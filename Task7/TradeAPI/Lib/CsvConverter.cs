@@ -9,9 +9,9 @@ namespace TradeAPI.Lib
 {
     public class CsvConverter
     {
-        public List<StrategyPnl> ConvertStrategy(string PnLPath)
+        public List<StrategyPnlVM> ConvertStrategy(string PnLPath)
         {
-            List<StrategyPnl> strategyPnlList = new List<StrategyPnl>();
+            List<StrategyPnlVM> strategyPnlList = new List<StrategyPnlVM>();
             using (StreamReader reader = new StreamReader(PnLPath))
             {
                 string[] headers = reader.ReadLine().Split(',');
@@ -24,7 +24,7 @@ namespace TradeAPI.Lib
 
                     for (int i = 0; i < pnlList.Count; i++)
                     {
-                        StrategyPnl strategyPnl = GetStrategyPnl(headers, i, strategyPnlList);
+                        StrategyPnlVM strategyPnl = GetStrategyPnl(headers, i, strategyPnlList);
                         AddPnlToStrategyPnl(date, pnlList[i], strategyPnl);
                     }
                 }
@@ -44,20 +44,20 @@ namespace TradeAPI.Lib
             return pnlList;
         }
 
-        private StrategyPnl GetStrategyPnl(string[] headers, int index, List<StrategyPnl> strategyPnlList)
+        private StrategyPnlVM GetStrategyPnl(string[] headers, int index, List<StrategyPnlVM> strategyPnlList)
         {
-            StrategyPnl strategyPnl = strategyPnlList.Find(x => x.Strategy == headers[index + 1]);
+            StrategyPnlVM strategyPnl = strategyPnlList.Find(x => x.Strategy == headers[index + 1]);
             if (strategyPnl == null)
             {
-                strategyPnl = new StrategyPnl { Strategy = headers[index + 1], Pnls = new List<PnL>() };
+                strategyPnl = new StrategyPnlVM { Strategy = headers[index + 1], Pnls = new List<PnLVM>() };
                 strategyPnlList.Add(strategyPnl);
             }
             return strategyPnl;
         }
 
-        private void AddPnlToStrategyPnl(DateTime date, decimal pnl, StrategyPnl strategyPnl)
+        private void AddPnlToStrategyPnl(DateTime date, decimal pnl, StrategyPnlVM strategyPnl)
         {
-            strategyPnl.Pnls.Add(new PnL { Date = date, Amount = pnl });
+            strategyPnl.Pnls.Add(new PnLVM { Date = date, Amount = pnl });
         }
 
 
