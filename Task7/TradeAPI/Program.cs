@@ -6,16 +6,16 @@ class Program
 {
     static void Main(string[] args)
     {
-        // To refactor code so that db operation does not need to have dependency injection of csvConverter
-
         CsvConverter csvConverter = new CsvConverter();
         string fullPath = Path.Combine(Constants.PnlPath);
 
+        var strategyPnL = csvConverter.ConvertStrategy(fullPath);
+
         using (TradeApiContext tradeApiContext = new TradeApiContext())
         {
-            CsvConverterDb csvConverterDb = new CsvConverterDb(tradeApiContext, csvConverter);
+            DbHelpers csvConverterDb = new DbHelpers(tradeApiContext);
 
-            csvConverterDb.ConvertAndPopulateDatabase(fullPath);
+            csvConverterDb.PopulatePnLDb(strategyPnL);
         }
 
     }

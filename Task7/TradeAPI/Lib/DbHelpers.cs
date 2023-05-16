@@ -1,22 +1,19 @@
 ﻿using TradeAPI.Db.Entity;
 using TradeAPI.Db;
-
+using TradeAPI.Models;
 
 namespace TradeAPI.Lib
 {
-    public class CsvConverterDb
+    public class DbHelpers
     {
         private readonly TradeApiContext _tradeApiContext;
-        private readonly CsvConverter _csvConverter;
 
-        public CsvConverterDb(TradeApiContext tradeApiContext, CsvConverter csvConverter)
+        public DbHelpers(TradeApiContext tradeApiContext)
         {
             _tradeApiContext = tradeApiContext;
-            _csvConverter = csvConverter;
         }
-        public void ConvertAndPopulateDatabase(string PnLPath)
+        public void PopulatePnLDb(List<StrategyPnlVM> strategyPnlList)
         {
-            var strategyPnlList = _csvConverter.ConvertStrategy(PnLPath);
 
             foreach (var strategyPnl in strategyPnlList)
             {
