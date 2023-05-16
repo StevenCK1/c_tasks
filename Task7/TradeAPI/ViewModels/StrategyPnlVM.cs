@@ -1,8 +1,18 @@
-﻿namespace TradeAPI.Models
+﻿namespace TradeAPI.ViewModels
 {
     public class StrategyPnlVM
     {
-        public string Strategy { get; set; }
-        public List<PnLVM> Pnls { get; set; }
+        public StrategyPnlVM()
+        {
+            Capital = new HashSet<CapitalVM>();
+            Pnl = new HashSet<PnLVM>();
+        }
+
+        public int StrategyId { get; set; }
+        public string StratName { get; set; }
+        public string Region { get; set; }
+
+        public ICollection<CapitalVM> Capital { get; set; }
+        public ICollection<PnLVM> Pnl { get; set; }
     }
 }

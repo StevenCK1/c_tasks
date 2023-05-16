@@ -1,6 +1,6 @@
 ﻿using TradeAPI.Db.Entity;
 using TradeAPI.Db;
-using TradeAPI.Models;
+using TradeAPI.ViewModels;
 
 namespace TradeAPI.Lib
 {
@@ -20,7 +20,7 @@ namespace TradeAPI.Lib
                 // Create a new Strategy entity
                 var strategyEntity = new StrategyPnL
                 {
-                    Strategy = strategyPnl.Strategy
+                    Strategy = strategyPnl.StratName
                 };
 
                 // Add the Strategy entity to the DbContext
@@ -29,7 +29,7 @@ namespace TradeAPI.Lib
                 // Save changes to generate Strategy's ID
                 _tradeApiContext.SaveChanges();
 
-                foreach (var pnl in strategyPnl.Pnls)
+                foreach (var pnl in strategyPnl.Pnl)
                 {
                     // Create a new PnL entity
                     var pnlEntity = new PnL

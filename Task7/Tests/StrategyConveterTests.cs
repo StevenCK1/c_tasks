@@ -1,5 +1,5 @@
 using TradeAPI.Lib;
-using TradeAPI.Models;
+using TradeAPI.ViewModels;
 
 namespace Tests
 {
@@ -27,8 +27,8 @@ namespace Tests
     {
         new StrategyPnlVM
         {
-            Strategy = "Strategy1",
-            Pnls = new List<PnLVM>
+            StratName = "Strategy1",
+            Pnl = new List<PnLVM>
             {
                 new PnLVM { Date = date1, Amount = 95045 },
                 new PnLVM { Date = date2, Amount = -140135 }
@@ -36,8 +36,8 @@ namespace Tests
         },
         new StrategyPnlVM
         {
-            Strategy = "Strategy2",
-            Pnls = new List<PnLVM>
+            StratName = "Strategy2",
+            Pnl = new List<PnLVM>
             {
                 new PnLVM { Date = date1, Amount = 501273 },
                 new PnLVM { Date = date2, Amount = 369071 }
@@ -51,11 +51,11 @@ namespace Tests
             // Assert
             for (int i = 0; i < expectedData.Count; i++)
             {
-                for (int j = 0; j < expectedData[i].Pnls.Count ; j++) {
+                for (int j = 0; j < expectedData[i].Pnl.Count ; j++) {
                 
-                 Assert.That(actualData[i].Strategy, Is.EqualTo(expectedData[i].Strategy));
-                 Assert.That(actualData[i].Pnls[j].Date, Is.EqualTo(expectedData[i].Pnls[j].Date));
-                 Assert.That(actualData[i].Pnls[j].Amount, Is.EqualTo(expectedData[i].Pnls[j].Amount));
+                 Assert.That(actualData[i].StratName, Is.EqualTo(expectedData[i].StratName));
+                 Assert.That(actualData[i].Pnl[j].Date, Is.EqualTo(expectedData[i].Pnl[j].Date));
+                 Assert.That(actualData[i].Pnl[j].Amount, Is.EqualTo(expectedData[i].Pnl[j].Amount));
 
                 }
             }

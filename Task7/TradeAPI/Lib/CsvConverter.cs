@@ -1,9 +1,6 @@
 ﻿
 using System.Globalization;
-using Microsoft.EntityFrameworkCore;
-using TradeAPI.Db;
-using TradeAPI.Models;
-using TradeAPI.TradesData;
+using TradeAPI.ViewModels;
 
 namespace TradeAPI.Lib
 {
@@ -46,10 +43,10 @@ namespace TradeAPI.Lib
 
         private StrategyPnlVM GetStrategyPnl(string[] headers, int index, List<StrategyPnlVM> strategyPnlList)
         {
-            StrategyPnlVM strategyPnl = strategyPnlList.Find(x => x.Strategy == headers[index + 1]);
+            StrategyPnlVM strategyPnl = strategyPnlList.Find(x => x.StratName == headers[index + 1]);
             if (strategyPnl == null)
             {
-                strategyPnl = new StrategyPnlVM { Strategy = headers[index + 1], Pnls = new List<PnLVM>() };
+                strategyPnl = new StrategyPnlVM { StratName = headers[index + 1], Pnl = new List<PnLVM>() };
                 strategyPnlList.Add(strategyPnl);
             }
             return strategyPnl;
@@ -57,7 +54,7 @@ namespace TradeAPI.Lib
 
         private void AddPnlToStrategyPnl(DateTime date, decimal pnl, StrategyPnlVM strategyPnl)
         {
-            strategyPnl.Pnls.Add(new PnLVM { Date = date, Amount = pnl });
+            strategyPnl.Pnl.Add(new PnLVM { Date = date, Amount = pnl });
         }
 
 
