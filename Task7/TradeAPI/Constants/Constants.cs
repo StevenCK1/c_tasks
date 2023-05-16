@@ -1,4 +1,4 @@
-﻿namespace TradeAPI.TradesData
+﻿namespace TradeAPI.Constants
 {
     public static class Constants
     {

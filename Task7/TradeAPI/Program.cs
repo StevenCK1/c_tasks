@@ -1,6 +1,6 @@
-﻿using TradeAPI.Db;
+﻿using TradeAPI.Constants;
+using TradeAPI.Db;
 using TradeAPI.Lib;
-using TradeAPI.TradesData;
 
 class Program
 {
