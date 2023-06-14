@@ -10,4 +10,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GSA_Server.Core\GSA_Server.Core.csproj" />
+    <ProjectReference Include="..\GSA_Server_Db\GSA_Server.Data.csproj" />
+  </ItemGroup>
+
 </Project>

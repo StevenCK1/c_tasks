@@ -1,4 +1,4 @@
-﻿namespace GSA_Server.models
+﻿namespace GSA_Server.Core.models
 {
     public class PnlVM
     {

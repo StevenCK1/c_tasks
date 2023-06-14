@@ -1,9 +1,10 @@
-﻿using GSA_Server.Data.Context;
+﻿using GSA_Server.Core.models;
+using GSA_Server.Data.Context;
 using GSA_Server.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
-namespace GSA_Server.utils
+namespace GSA_Server.Core.utils
 {
     // TODO: Single responsiblity principle. Decouple the code! 
     public class DatabaseQuerier
@@ -16,22 +17,24 @@ namespace GSA_Server.utils
             _dbContext = dbContext;
         }
 
-        public List<Data.Entity.Strategy> QueryCapitals(string[] strategyNames)
+        public List<CumulativeCapitalVM> QueryCapitals(string[] strategyNames)
         {
-            if (!strategyNames.Any()) return new List<Strategy>();
+            if (!strategyNames.Any()) return new List<CumulativeCapitalVM>();
 
             var strategies = GetStrategiesWithCapitals(strategyNames);
-            if (!strategies.Any()) return new List<Strategy>();
+            if (!strategies.Any()) return new List<CumulativeCapitalVM>();
 
             var cumulativeStrategies = CumulateStrategyCapitals(strategies);
 
             return cumulativeStrategies;
         }
 
-        public List<CumlativeStrategyCapitals> CumulateStrategyCapitals(List<Strategy> strategies)
+        public List<CumulativeCapitalVM> CumulateStrategyCapitals(List<Strategy> strategies)
         {
-            // I don't like that you reused the class here
             var cumulativeStrategies = new List<GSA_Server.Data.Entity.Strategy>();
+
+            //remove build errors
+            var cu = new List<CumulativeCapitalVM>();
 
             foreach (var strategy in strategies)
             {
@@ -43,14 +46,14 @@ namespace GSA_Server.utils
                 {
                     total = capital.Amount + total;
 
-                    // I don't like that you reused the class here
-                    var cumulativeCapital = new CumlativeCapital() { Date = capital.Date, Amount = total };
-                    cumulativeStrategy.Capitals.Add(cumulativeCapital);
+                    var cumulativeCapital = new CumulativeCapitalVM() { Date = capital.Date, Amount = total };
+                  //  cumulativeStrategy.Capitals.Add(cumulativeCapital);
                 }
                 cumulativeStrategies.Add(cumulativeStrategy);
             }
 
-            return cumulativeStrategies;
+            // return cumulativeStrategies;
+            return cu;
         }
 
         public Dictionary<DateTime, decimal> QueryPnls(string region)
@@ -71,7 +74,7 @@ namespace GSA_Server.utils
 
             foreach (var strategy in strategies)
             {
-                var cumulativeStrategy = new GSA.Data.Entity.Strategy();
+                var cumulativeStrategy = new GSA_Server.Data.Entity.Strategy();
                 cumulativeStrategy.StratName = strategy.StratName;
 
                 var currentTotal = 0.0M;
@@ -113,10 +116,9 @@ namespace GSA_Server.utils
             return pnlDict;
         }
 
-        private List<GSA.Data.Entity.Strategy> GetStrategiesWithCapitals(string[] strategyNames)
+        private List<GSA_Server.Data.Entity.Strategy> GetStrategiesWithCapitals(string[] strategyNames)
         {
-            // or can use _dbContext. Pick one way, don't mix
-            using (var db = new StrategyContext())
+            using (var db = _dbContext)
             {
                 var strategies = db.Strategies.Where(x => strategyNames.Contains(x.StratName))
                     .Include(x => x.Capitals)
@@ -132,9 +134,9 @@ namespace GSA_Server.utils
     
         }
 
-        private List<GSA.Data.Entity.Strategy> GetStrategiesWithPnlsFromRegion(string region)
+        private List<GSA_Server.Data.Entity.Strategy> GetStrategiesWithPnlsFromRegion(string region)
         {
-            var strategies = new List<GSA.Data.Entity.Strategy>();
+            var strategies = new List<GSA_Server.Data.Entity.Strategy>();
 
             strategies = _dbContext.Strategies.Where(x => x.Region == region)
                 .Include(x => x.Pnls)

@@ -1,17 +1,17 @@
-﻿using GSA_Server.models;
+﻿using GSA_Server.Core.models;
 
-namespace GSA_Server.utils
+namespace GSA_Server.Core.utils
 {
     public class StrategyReader
     {
         public List<StrategyVM> _strategies;
         public IMyFileReader _fileReader;
 
+
         public StrategyReader(IMyFileReader fileReader)
         {
             _fileReader = fileReader;
         }
-
         public List<StrategyVM> Execute()
         {
             _strategies = InitialiseStrategies(_strategies);
@@ -29,14 +29,20 @@ namespace GSA_Server.utils
 
         public List<StrategyVM> ReadPnls()
         {
-            var lines = _fileReader.ReadAllLines("files/pnl.csv");
+            var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var filePath = Path.Combine(baseDirectory, "files/pnl.csv");
+
+            var lines = _fileReader.ReadAllLines(filePath);
             var strategiesWithNames = GetStrategyNames(lines);
             return ReadData<PnlVM>(lines, strategiesWithNames, (amount, date) => new PnlVM() { Amount=amount, Date= date}, strategy => strategy.Pnl);
         }
 
         public List<StrategyVM> ReadCapitals()
         {
-            var lines = _fileReader.ReadAllLines("files/capital.csv");
+            var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var filePath = Path.Combine(baseDirectory, "files/capital.csv");
+
+            var lines = _fileReader.ReadAllLines(filePath);
             var strategiesWithNames = GetStrategyNames(lines);
             return ReadData<CapitalVM>(lines, strategiesWithNames, (amount, date) => new CapitalVM() { Amount = amount, Date = date }, strategy => strategy.Capital);
 
@@ -93,7 +99,9 @@ namespace GSA_Server.utils
 
         public List<StrategyVM> InitialiseStrategies(List<StrategyVM> strategies)
         {
-            var lines = _fileReader.ReadAllLines("files/properties.csv");
+            var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var filePath = Path.Combine(baseDirectory, "files/properties.csv");
+            var lines = _fileReader.ReadAllLines(filePath);
             return ParseProperties(lines);
         }
 

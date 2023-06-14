@@ -1,3 +1,7 @@
+
+using GSA_Server.Core.utils;
+using GSA_Server.Data.Context;
+
 namespace GSA_Server
 {
     public class Program
@@ -9,7 +13,11 @@ namespace GSA_Server
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+            builder.Services.AddScoped<DbHelpers>();
+
+            builder.Services.AddDbContext<GsaserverApiContext>(ServiceLifetime.Scoped); 
+            
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -28,7 +36,6 @@ namespace GSA_Server
 
 
             app.MapControllers();
-
             app.Run();
         }
     }

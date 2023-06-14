@@ -1,4 +1,4 @@
-﻿namespace GSA_Server.utils
+﻿namespace GSA_Server.Core.utils
 {
     public class MyFileReader : IMyFileReader
     {
