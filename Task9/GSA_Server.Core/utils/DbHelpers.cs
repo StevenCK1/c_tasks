@@ -8,9 +8,9 @@ namespace GSA_Server.Core.utils
         private readonly GsaserverApiContext _dbContext;
         public DbHelpers(GsaserverApiContext dbContext)
         {
-           _dbContext = dbContext;
+            _dbContext = dbContext;
         }
-        public  void SaveToDatabase(List<StrategyVM> strategies)
+        public void SaveToDatabase(List<StrategyVM> strategies)
         {
             using (var db = _dbContext)
             {
@@ -18,11 +18,10 @@ namespace GSA_Server.Core.utils
                 db.RemoveRange(db.Pnls);
                 db.RemoveRange(db.Strategies);
                 db.SaveChanges();
-            }
-            foreach (StrategyVM strategy in strategies)
-            {
-                using (var db = _dbContext)
+
+                foreach (StrategyVM strategy in strategies)
                 {
+
                     GSA_Server.Data.Entity.Strategy dbStrategies = new();
                     dbStrategies.StratName = strategy.StratName;
                     dbStrategies.Region = strategy.Region;
