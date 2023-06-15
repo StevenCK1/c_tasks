@@ -37,7 +37,17 @@ namespace GSA_Server.Controllers
         [HttpPost]
         [Route("capital")]
 
-        public List<string> ImportDataFromCsv(string command)
+        public List<string> CalculateCumulativeCapitalForStrategies(string command)
+        {
+            var strategyReader = _commandHelpers.ProcessCommands(command);
+
+            return strategyReader;
+        }
+
+        [HttpPost]
+        [Route("pnl")]
+
+        public List<string> CalculateCumulativePnlForStrategies(string command)
         {
             var strategyReader = _commandHelpers.ProcessCommands(command);
 

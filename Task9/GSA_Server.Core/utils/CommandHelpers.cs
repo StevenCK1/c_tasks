@@ -25,12 +25,13 @@ namespace GSA_Server.Core.utils
                results.AddRange(capitalResults);
 
             }
-            //else if (commandParts[0] == "cumulative-pnl")
-            //{
-            //    var region = commandParts[1];
+            else if (commandParts[0] == "cumulative-pnl")
+            {
+                var region = commandParts[1];
 
-            //    ProcessCumulativePnL(region);
-            //}
+               var pnlResults = ProcessCumulativePnL(region);
+                results.AddRange(pnlResults);
+            }
             else
             {
                 results.Add("Invalid command.");
@@ -59,18 +60,21 @@ namespace GSA_Server.Core.utils
             return results;
         }
 
-        //public void ProcessCumulativePnL(string region)
-        //{
+        public List<string> ProcessCumulativePnL(string region)
+        {
 
-        //    var result = _databaseQuerier.QueryPnls(region);
+            var dbResponse = _databaseQuerier.QueryPnls(region);
+            var results = new List<string>();
 
-        //    var keys = result.Keys;
-        //    keys.OrderBy(x => x.Date).ToList();
+            var keys = dbResponse.Keys;
+            keys.OrderBy(x => x.Date).ToList();
 
-        //    foreach (var key in keys)
-        //    {
-        //        Console.WriteLine($"date: {key.ToString("yyyy-MM-dd")} cululativePnl:{result[key]}");
-        //    }
-        //}
+            foreach (var key in keys)
+            {
+                results.Add($"date: {key.ToString("yyyy-MM-dd")} cululativePnl:{dbResponse[key]}");
+            }
+
+            return results;
+        }
     }
 }

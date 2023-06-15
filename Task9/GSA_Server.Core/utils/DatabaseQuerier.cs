@@ -59,15 +59,18 @@ namespace GSA_Server.Core.utils
 
             var strategies = GetStrategiesWithPnlsFromRegion(region);
 
-            var pnlDict = cumulateStrategyPnls(strategies);
+            var pnlDict = CumulateStrategyPnls(strategies);
 
             return pnlDict;
 
         }
 
-        public Dictionary<DateTime, decimal> cumulateStrategyPnls(List<Strategy> strategies)
+        public Dictionary<DateTime, decimal> CumulateStrategyPnls(List<Strategy> strategies)
         {
             var pnlDict = new Dictionary<DateTime, decimal>();
+
+            DateTime firstDate = DateTime.MaxValue;
+            DateTime lastDate = DateTime.MinValue;
 
             foreach (var strategy in strategies)
             {
@@ -75,43 +78,46 @@ namespace GSA_Server.Core.utils
                 cumulativeStrategy.StratName = strategy.StratName;
 
                 var currentTotal = 0.0M;
-                var total = 0.0M;
-                var currentDate = strategy.Pnls.First().Date;
+
                 foreach (var pnl in strategy.Pnls)
                 {
-                    if (pnl.Date.Month != currentDate.Month)
+                    var currentDate = pnl.Date.Date; // Use only the date part without time
+
+                    if (currentDate < firstDate)
+                        firstDate = currentDate;
+
+                    if (currentDate > lastDate)
+                        lastDate = currentDate;
+
+                    if (pnlDict.ContainsKey(currentDate))
                     {
-                        total += currentTotal;
-
-                        if (pnlDict.ContainsKey(currentDate))
-                        {
-                            pnlDict[currentDate] = pnlDict[currentDate] + total;
-                        }
-                        else
-                        {
-                            pnlDict[currentDate] = total;
-                        }
-                        currentDate = pnl.Date;
-                        currentTotal = 0.0m;
+                        pnlDict[currentDate] += pnl.Amount;
                     }
-                    currentTotal += pnl.Amount;
+                    else
+                    {
+                        pnlDict[currentDate] = pnl.Amount;
+                    }
                 }
-                total += currentTotal;
+            }
 
-                if (pnlDict.ContainsKey(currentDate))
-                {
-                    pnlDict[currentDate] = pnlDict[currentDate] + total;
-                }
-                else
-                {
-                    pnlDict[currentDate] = total;
-                }
+            // Fill in missing dates with zero PnL
+            for (var date = firstDate; date <= lastDate; date = date.AddDays(1))
+            {
+                if (!pnlDict.ContainsKey(date))
+                    pnlDict[date] = 0.0M;
+            }
 
-
+            // Calculate cumulative totals
+            decimal cumulativeTotal = 0.0M;
+            foreach (var kvp in pnlDict.OrderBy(k => k.Key))
+            {
+                cumulativeTotal += kvp.Value;
+                pnlDict[kvp.Key] = cumulativeTotal;
             }
 
             return pnlDict;
         }
+
 
         private List<GSA_Server.Data.Entity.Strategy> GetStrategiesWithCapitals(string[] strategyNames)
         {
