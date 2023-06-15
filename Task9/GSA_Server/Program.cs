@@ -15,6 +15,8 @@ namespace GSA_Server
             builder.Services.AddControllers();
 
             builder.Services.AddScoped<DbHelpers>();
+            builder.Services.AddScoped<CommandHelpers>();
+            builder.Services.AddScoped<DatabaseQuerier>();
 
             builder.Services.AddDbContext<GsaserverApiContext>(ServiceLifetime.Scoped); 
             

@@ -31,29 +31,26 @@ namespace GSA_Server.Core.utils
 
         public List<CumulativeCapitalVM> CumulateStrategyCapitals(List<Strategy> strategies)
         {
-            var cumulativeStrategies = new List<GSA_Server.Data.Entity.Strategy>();
-
-            //remove build errors
-            var cu = new List<CumulativeCapitalVM>();
+            var cumulativeStrategies = new List<CumulativeCapitalVM>();
 
             foreach (var strategy in strategies)
             {
-                var cumulativeStrategy = new GSA_Server.Data.Entity.Strategy();
+                var cumulativeStrategy = new CumulativeCapitalVM();
                 cumulativeStrategy.StratName = strategy.StratName;
 
+                 cumulativeStrategy.Capital = new List<CapitalVM>();
                 var total = 0.0M;
                 foreach (var capital in strategy.Capitals)
                 {
                     total = capital.Amount + total;
 
-                    var cumulativeCapital = new CumulativeCapitalVM() { Date = capital.Date, Amount = total };
-                  //  cumulativeStrategy.Capitals.Add(cumulativeCapital);
+                    var cumulativeCapital = new CapitalVM() { Date = capital.Date, Amount = total };
+                    cumulativeStrategy.Capital.Add(cumulativeCapital);
                 }
                 cumulativeStrategies.Add(cumulativeStrategy);
             }
 
-            // return cumulativeStrategies;
-            return cu;
+             return cumulativeStrategies;
         }
 
         public Dictionary<DateTime, decimal> QueryPnls(string region)

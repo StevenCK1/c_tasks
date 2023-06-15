@@ -4,7 +4,8 @@ namespace GSA_Server.Core.models
 {
     public class CumulativeCapitalVM
     {
-        public DateTime Date { get; set; }
-        public decimal Amount { get; set; }
+        public string StratName { get; set; }
+        public ICollection<CapitalVM> Capital { get; set; }
+
     }
 }

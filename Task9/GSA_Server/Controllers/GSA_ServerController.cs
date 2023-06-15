@@ -9,17 +9,19 @@ namespace GSA_Server.Controllers
     {
         
         private readonly DbHelpers _dbHelpers;
+        private readonly CommandHelpers _commandHelpers;
 
-        public GSA_ServerController(DbHelpers dbHelpers)
+        public GSA_ServerController(DbHelpers dbHelpers, CommandHelpers commandHelpers)
         {
             _dbHelpers = dbHelpers;
+            _commandHelpers = commandHelpers;
         }
 
        
         [HttpPost]
         [Route("saveDb")]
 
-        public IActionResult ImportDataFromCsv(string csvFilePath)
+        public IActionResult ImportDataFromDb(string csvFilePath)
         {
             var strategyReader = new StrategyReader(new MyFileReader());
             var result = strategyReader.Execute();
@@ -30,6 +32,16 @@ namespace GSA_Server.Controllers
              _dbHelpers.SaveToDatabase(result);
 
             return Ok();
+        }
+
+        [HttpPost]
+        [Route("capital")]
+
+        public List<string> ImportDataFromCsv(string command)
+        {
+            var strategyReader = _commandHelpers.ProcessCommands(command);
+
+            return strategyReader;
         }
     }
 }
