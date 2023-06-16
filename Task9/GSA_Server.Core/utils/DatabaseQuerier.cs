@@ -119,7 +119,7 @@ namespace GSA_Server.Core.utils
         }
 
 
-        private List<GSA_Server.Data.Entity.Strategy> GetStrategiesWithCapitals(string[] strategyNames)
+        public List<GSA_Server.Data.Entity.Strategy> GetStrategiesWithCapitals(string[] strategyNames)
         {
             using (var db = _dbContext)
             {
@@ -137,7 +137,7 @@ namespace GSA_Server.Core.utils
     
         }
 
-        private List<GSA_Server.Data.Entity.Strategy> GetStrategiesWithPnlsFromRegion(string region)
+        public List<GSA_Server.Data.Entity.Strategy> GetStrategiesWithPnlsFromRegion(string region)
         {
             var strategies = new List<GSA_Server.Data.Entity.Strategy>();
 

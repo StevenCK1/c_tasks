@@ -5,9 +5,11 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GSA_Server", "GSA_Server.csproj", "{FDA9CEA9-4641-4185-8DD2-EC9D6A1729F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSA_Server.Data", "..\GSA_Server_Db\GSA_Server.Data.csproj", "{4212D12A-F603-44CF-9B9F-5FAC589F816D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GSA_Server.Data", "..\GSA_Server_Db\GSA_Server.Data.csproj", "{4212D12A-F603-44CF-9B9F-5FAC589F816D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSA_Server.Core", "..\GSA_Server.Core\GSA_Server.Core.csproj", "{849046B6-7732-44FA-BFD4-F514537CC482}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GSA_Server.Core", "..\GSA_Server.Core\GSA_Server.Core.csproj", "{849046B6-7732-44FA-BFD4-F514537CC482}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSA_ServerTests", "..\GSA_ServerTests\GSA_ServerTests.csproj", "{4BE0D7CD-8A8A-4C3F-A9FA-E698A0F353DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{849046B6-7732-44FA-BFD4-F514537CC482}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{849046B6-7732-44FA-BFD4-F514537CC482}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{849046B6-7732-44FA-BFD4-F514537CC482}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BE0D7CD-8A8A-4C3F-A9FA-E698A0F353DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE0D7CD-8A8A-4C3F-A9FA-E698A0F353DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE0D7CD-8A8A-4C3F-A9FA-E698A0F353DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE0D7CD-8A8A-4C3F-A9FA-E698A0F353DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
