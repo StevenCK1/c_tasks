@@ -211,9 +211,8 @@ namespace GSA_ServerTests
             //Assert
             Assert.That(actual[0].StratName, Is.EqualTo(expected[0].StratName));
             Assert.That(expected[0].Capitals.ElementAt(0).Date, Is.LessThan(expected[0].Capitals.ElementAt(1).Date));
-            Assert.Less(expected[0].Capitals.ElementAt(0).Date, expected[0].Capitals.ElementAt(1).Date);
-            Assert.Less(expected[0].Capitals.ElementAt(1).Date, expected[0].Capitals.ElementAt(2).Date);
-            Assert.Less(expected[0].Capitals.ElementAt(2).Date, expected[0].Capitals.ElementAt(3).Date);
+            Assert.That(expected[0].Capitals.ElementAt(1).Date, Is.LessThan(expected[0].Capitals.ElementAt(2).Date));
+            Assert.That(expected[0].Capitals.ElementAt(2).Date, Is.LessThan(expected[0].Capitals.ElementAt(3).Date));
 
         }
 
