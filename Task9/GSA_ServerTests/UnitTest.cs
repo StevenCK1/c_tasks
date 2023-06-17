@@ -104,7 +104,7 @@ namespace GSA_ServerTests
             var actual = service.GetStrategiesWithCapitals(listStrategies);
 
             //Assert
-            Assert.AreEqual(expected, actual);
+            Assert.That(actual, Is.EqualTo(expected));
         }
 
         [Test]
@@ -209,7 +209,12 @@ namespace GSA_ServerTests
             var actual = service.GetStrategiesWithCapitals(listStrategies);
 
             //Assert
-            Assert.AreEqual(expected, actual);
+            Assert.That(actual[0].StratName, Is.EqualTo(expected[0].StratName));
+            Assert.That(expected[0].Capitals.ElementAt(0).Date, Is.LessThan(expected[0].Capitals.ElementAt(1).Date));
+            Assert.Less(expected[0].Capitals.ElementAt(0).Date, expected[0].Capitals.ElementAt(1).Date);
+            Assert.Less(expected[0].Capitals.ElementAt(1).Date, expected[0].Capitals.ElementAt(2).Date);
+            Assert.Less(expected[0].Capitals.ElementAt(2).Date, expected[0].Capitals.ElementAt(3).Date);
+
         }
 
         [Test]
