@@ -56,7 +56,7 @@ namespace MultiThreading
 
                         var namesScore = new NamesAndScore() { name = name, nameCompared = nameComparedAgainst, score = ratio };
 
-                        lock (lockObject) // Lock the critical section
+                        lock (lockObject) // Lock the critical section to ensure thread safety (modifying the list concurrently from multiple thread leads to errors because of the state)
                         {
                             results.topScores.Add(namesScore);
                         }
