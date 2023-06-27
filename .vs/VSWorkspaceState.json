@@ -1,10 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Task3\\testSuite",
-    "\\Task4\\Task4_linq",
-    "\\Task5\\TestSuite"
+    "\\Task3",
+    "\\Task3\\testSuite"
   ],
-  "SelectedNode": "\\Task7",
+  "SelectedNode": "\\Task3\\testSuite\\UnitTest1.cs",
   "PreviewInSolutionExplorer": false
 }
