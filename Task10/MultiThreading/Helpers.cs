@@ -16,14 +16,14 @@ namespace MultiThreading
             Parallel.For(0, vm.Names.Count, (i) =>
                 {
                     var resultToAdd = new NamesAndScore();
-                    var name = vm.Names[i].ToString();
+                    var name = vm.Names[i];
 
                     for (var y = 0; y < vm.Names.Count; y++)
                     {
-                        var nameComparedAgainst = vm.Names[y].ToString();
+                        var nameComparedAgainst = vm.Names[y];
                         if (i != y)
                         {
-                            var ratio = Fuzz.Ratio(vm.Names[i].ToString(), vm.Names[y].ToString());
+                            var ratio = Fuzz.Ratio(vm.Names[i], vm.Names[y]);
 
                             var namesScore = new NamesAndScore() { name = name, nameCompared = nameComparedAgainst, score = ratio };
 
