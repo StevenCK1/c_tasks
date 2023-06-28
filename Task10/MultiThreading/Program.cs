@@ -7,74 +7,12 @@ namespace MultiThreading
     {
         static void Main(string[] args)
         {
-            VM _vm = new VM();
-            Stopwatch stopwatch = new Stopwatch();
-
-
-            var results = new NamesByScore();
-
-            //// Compare each name and calc score
-
-            //stopwatch.Start();
-
-            //for (var i = 0; i < _vm.Names.Count; i++)
-            //{
-            //    var resultToAdd = new NamesAndScore();
-            //    var name = _vm.Names[i].ToString();
-
-            //    for (var y = 0; y < _vm.Names.Count; y++)
-            //    {
-            //        var nameComparedAgainst = _vm.Names[y].ToString();
-            //        if (i != y)
-            //        {
-            //            var ratio = Fuzz.Ratio(_vm.Names[i].ToString(), _vm.Names[y].ToString());
-
-            //            var namesScore = new NamesAndScore() { name = name, nameCompared = nameComparedAgainst, score = ratio };
-            //            results.topScores.Add(namesScore);
-            //        }
-
-            //    }
-
-            //}
-
-            //stopwatch.Stop();
-
-            //stopwatch.Start();
-            object lockObject = new object(); // Object used as a lock
-
-            Parallel.For(0, _vm.Names.Count, (i) =>
-            {
-                var resultToAdd = new NamesAndScore();
-                var name = _vm.Names[i].ToString();
-
-                for (var y = 0; y < _vm.Names.Count; y++)
-                {
-                    var nameComparedAgainst = _vm.Names[y].ToString();
-                    if (i != y)
-                    {
-                        var ratio = Fuzz.Ratio(_vm.Names[i].ToString(), _vm.Names[y].ToString());
-
-                        var namesScore = new NamesAndScore() { name = name, nameCompared = nameComparedAgainst, score = ratio };
-
-                        lock (lockObject) // Lock the critical section to ensure thread safety (modifying the list concurrently from multiple thread leads to errors because of the state)
-                        {
-                            results.topScores.Add(namesScore);
-                        }
-                    }
-
-                }
-
-            });
-            //stopwatch.Stop();
-
-            Console.WriteLine(stopwatch.ElapsedMilliseconds);
-
-            var sortedResults = results.topScores.OrderByDescending(name => name.score).ToList();
-
-            foreach (var result in sortedResults)
-            {
-                Console.WriteLine($"{result.score}: {result.name} -> {result.nameCompared}");
-            }
+            VM names = new VM();
+            Helpers _helpers = new Helpers();
+            
+            var results = _helpers.CompareAndCalcRatio(names);
+            var sortedResults = _helpers.SortByScoreHiToLow(results);
+            _helpers.PrintToConsole(sortedResults);
 
         }
     }
