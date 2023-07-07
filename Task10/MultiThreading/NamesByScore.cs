@@ -1,16 +1,12 @@
-﻿
-
-using System.Collections.Concurrent;
-
-namespace MultiThreading
+﻿namespace MultiThreading
 {
     public class NamesByScore
     {
-        public ConcurrentBag<NamesAndScore> topScores {get; set; } 
+        public List<NamesAndScore> topScores {get; set; } 
 
         public NamesByScore()
         {
-            topScores = new ConcurrentBag<NamesAndScore>();
+            topScores = new List<NamesAndScore>();
         }
     }
 

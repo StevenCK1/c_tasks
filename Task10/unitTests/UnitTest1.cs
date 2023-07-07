@@ -50,8 +50,8 @@ namespace unitTests
         {
             // Arrange
             var namesAndScores = new NamesByScore();
-            namesAndScores.topScores.Add(new NamesAndScore { name = "John", nameCompared = "Jane", score = 50 });
             namesAndScores.topScores.Add(new NamesAndScore { name = "Alice", nameCompared = "Bob", score = 0 });
+            namesAndScores.topScores.Add(new NamesAndScore { name = "John", nameCompared = "Jane", score = 50 });
 
             // Act
             var result = _helpers.SortByScoreHiToLow(namesAndScores);
