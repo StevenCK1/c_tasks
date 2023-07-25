@@ -2,7 +2,10 @@
 {
     public class Phonebook
     {
-        public Dictionary<string, long> _phonebook;
+        public Dictionary<string, long> _phonebook; // since the shared state is phonebook class, do we need to make the phonebook static as well? Throwing off errors when tried to make static
+        public static readonly object _lock = new object(); 
+
+
         private FileHelpers _fileHelpers;
 
         public Phonebook(FileHelpers fileHelpers)
@@ -11,7 +14,6 @@
             _fileHelpers = fileHelpers;
 
 
-            // Create method for this and move to file helpers
             if (!File.Exists(FileHelpers.Path))
             {
                 File.Create(FileHelpers.Path).Close();
@@ -20,6 +22,7 @@
             _fileHelpers.LoadFromFile(_phonebook);
         }
 
+        // Don't think would need to lock get methods because we are not modifying the state? I suppose there could be a scenario where a thread updates the state and the get method returns the wrong version of the state?
         public long? Get(string name)
         {
             _phonebook.TryGetValue(name, out long number);
@@ -35,8 +38,13 @@
         {
             if (_phonebook.TryGetValue(name, out long number))
             {
-                _phonebook.Remove(name);
-                _fileHelpers.SaveToFile(_phonebook);
+                lock (_lock)
+                {
+                    // same locking logic applies to Update and Store
+                    _phonebook.Remove(name); // locking the phonebook as this would be the shared state
+                    _fileHelpers.SaveToFile(_phonebook); // locking this as well because if the phonebook is accessed by another thread, the phonebook state could be modified before saving to file. 
+                }
+
                 return number;
             }
             return null;
@@ -47,8 +55,13 @@
             if (_phonebook.ContainsKey(name))
             {
                 long oldNumber = _phonebook[name];
-                _phonebook[name] = newNumber;
-                _fileHelpers.SaveToFile(_phonebook);
+                lock (_lock)
+                {
+                    _phonebook[name] = newNumber;
+                    _fileHelpers.SaveToFile(_phonebook);
+                }
+
+
                 return oldNumber;
             }
             return null;
@@ -56,8 +69,12 @@
 
         public void Store(string name, long number)
         {
-            _phonebook[name] = number;
-            _fileHelpers.SaveToFile(_phonebook);
+            lock (_lock)
+            {
+                _phonebook[name] = number;
+                _fileHelpers.SaveToFile(_phonebook);
+            }
+
         }
     }
 }
