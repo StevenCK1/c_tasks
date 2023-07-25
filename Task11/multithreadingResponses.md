@@ -34,6 +34,8 @@ class BankAccount {
 Answer is here: https://learn.microsoft.com/en-us/archive/msdn-magazine/2008/october/concurrency-hazards-solving-problems-in-your-multithreaded-code
 Don't read until you've done the ex!
 
+Answer is starvation
+
 ```
 // Solution is to make acquire both locks up front and then make the method calls // Deadlock issue?
 class BankAccount {
@@ -100,6 +102,7 @@ You can remove any method that causes mutation, but you must retain that fuction
     //v2
      public class User1
     {
+// need to make readonly
         protected int _id = 0;
         public readonly string _name;
 
@@ -119,6 +122,7 @@ You can remove any method that causes mutation, but you must retain that fuction
             return new User1(newName, location)
         }
 
+// remove setter
         public int Designation { get; set; }
         public string Location { get; private set; }
     }
@@ -371,6 +375,7 @@ lock (locker2)
 ```csharp
     public class PhoneBook
     {
+// lock object does not need to be static 
         private Dictionary<string, long> _phonebook;
         private object _lock = new object();
 
@@ -390,9 +395,9 @@ lock (locker2)
         }
 
         public void Clear()
-        { 
+        {
+// ANSWER need to lock here
             _phonebook.Clear();
         }
     }
 ```
-**lock object needs to be static or readonly to avoid synchronisation issues**
