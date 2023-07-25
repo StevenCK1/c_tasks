@@ -29,7 +29,7 @@ namespace LockingExecerises
         private static int _totalClicksAcrossAllTrackers = 0;
         public static readonly object _totalClicksAcrossAllTrackersLock = new object();
 
-        // non-static lock is shared amond all instances of the class
+        // When a non-static lock object is used, each instance of the class has its own lock object. 
 
         private int _totalClicksForThisTracker = 0;
         private  readonly object _totalClicksForThisTrackerLock = new object();
