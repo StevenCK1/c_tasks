@@ -1,10 +1,12 @@
-﻿namespace MultiThread_phonebook
+﻿using System.Collections.Concurrent;
+
+namespace MultiThread_phonebook
 {
     public class FileHelpers
     {
         public const string Path = "phonebook.txt";
 
-        public void LoadFromFile(IDictionary<string, long> _phonebook)
+        public void LoadFromFile(ConcurrentDictionary<string, long> _phonebook)
         {
             string[] lines = File.ReadAllLines(Path);
             foreach (string line in lines)
@@ -17,7 +19,7 @@
             }
         }
 
-        public void SaveToFile(IDictionary<string, long> _phonebook)
+        public void SaveToFile(ConcurrentDictionary<string, long> _phonebook)
         {
             // easier to do list and add to list
             string[] lines = new string[_phonebook.Count];
