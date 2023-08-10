@@ -1,8 +1,9 @@
 ﻿using System.Collections.Concurrent;
+using MultiThread2_phonebook;
 
 namespace MultiThread_phonebook
 {
-    public class FileHelpers
+    public class FileHelpers : IFileHelpers
     {
         public const string Path = "phonebook.txt";
 

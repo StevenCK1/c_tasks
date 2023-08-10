@@ -1,13 +1,14 @@
 ﻿using System.Collections.Concurrent;
+using MultiThread2_phonebook;
 
 namespace MultiThread_phonebook
 {
     public class Phonebook
     {
         public ConcurrentDictionary<string, long> _phonebook; 
-        private FileHelpers _fileHelpers;
+        private IFileHelpers _fileHelpers;
 
-        public Phonebook(FileHelpers fileHelpers)
+        public Phonebook(IFileHelpers fileHelpers)
         {
             _phonebook = new ConcurrentDictionary<string, long>();
             _fileHelpers = fileHelpers;
