@@ -36,6 +36,8 @@ namespace Multithread2_phonebook_Tests
             //Assert
             Assert.That(actualDict.Count, Is.EqualTo(10000));
 
+            // Need to test for integrity of data??
+
         }
 
         [Test]
