@@ -37,5 +37,37 @@ namespace Multithread2_phonebook_Tests
             Assert.That(actualDict.Count, Is.EqualTo(10000));
 
         }
+
+        [Test]
+        public void ConcurrentAccess_StoreAndDelete()
+        {
+            // Arrange
+            const int concurrentTasks = 1000;
+            const int iterationsPerTask = 10000;
+
+            List<Task> tasks = new List<Task>();
+
+            //Act
+            for (int i = 0; i < concurrentTasks; i++)
+            {
+                tasks.Add(Task.Run(() =>
+                {
+                    for (int j = 0; j < iterationsPerTask; j++)
+                    {
+                        _phonebook.Store($"Name_{j}", j);
+                        _phonebook.Delete($"Name_{j}");
+                    }
+                }));
+            }
+
+            // Need to wait for tasks to complete before the assertion, if not the test could end before all concurrent operations are done
+            Task.WhenAll(tasks).Wait();
+
+            var actualDict = _phonebook.GetAll();
+
+            //Assert
+            Assert.That(actualDict.Count, Is.EqualTo(0)); 
+            
+        }
     }
 }
