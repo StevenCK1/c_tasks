@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursion", "Recursion.csproj", "{AD3291AF-72FD-4E59-A6A3-13D2922C2070}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recursion", "Recursion.csproj", "{AD3291AF-72FD-4E59-A6A3-13D2922C2070}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursion.Tests", "..\Recursion.Tests\Recursion.Tests.csproj", "{EF91648E-BB8F-4F1F-AA71-80E6135F6AC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{AD3291AF-72FD-4E59-A6A3-13D2922C2070}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD3291AF-72FD-4E59-A6A3-13D2922C2070}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD3291AF-72FD-4E59-A6A3-13D2922C2070}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF91648E-BB8F-4F1F-AA71-80E6135F6AC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF91648E-BB8F-4F1F-AA71-80E6135F6AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF91648E-BB8F-4F1F-AA71-80E6135F6AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF91648E-BB8F-4F1F-AA71-80E6135F6AC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

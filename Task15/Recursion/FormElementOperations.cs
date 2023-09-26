@@ -1,6 +1,6 @@
 ﻿namespace Recursion
 {
-    class FormElementOperations<T>
+   public class FormElementOperations<T>
     {
         public static bool AddElement(FormElement<T> root, int parentId, T value) // returns bool to indicate success or failure
         {
