@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\Task15",
-    "\\Task15\\Recursion"
+    "\\Task15\\Recursion",
+    "\\Task8",
+    "\\Task8\\MywebApi",
+    "\\Task8\\MyWebApp",
+    "\\Task8\\MyWebApp\\Pages"
   ],
-  "SelectedNode": "\\Task15\\Recursion\\FormElementOperations.cs",
+  "SelectedNode": "\\Task8\\MyWebApp\\Pages\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }
